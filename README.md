@@ -1,3 +1,123 @@
-# CSP
 
-According to the International Energy Agency (IEA) expectations the energy consumption worldwide will grow 70-100% by 2050 representing a global problem in ascendancy of electric consumption and global warming. In Egypt, this ascendancy will be the pulsing heart of several grand challenges of development, from the shortage of non-renewable sources to the effect of climate change as well as dealing with population growth and urban congestion and their consequences. A variety of solutions were already tried targeting these grand challenges reaching alternative renewable energy sources with the best of them included between: Wind power stations, solar Photovoltaic (PV) cells and concentrated solar power stations (CSP). Although wind energy is amazing in its energy production, wind power stations need isolated huge land with highly kinetic wind, so it is not efficiently applicable in Egypt. However, the research showed that solar energy is the best source that Egypt can alternate to; for having the purest atmosphere in its deserts which appears from the Direct Normal irradiance in figure one which shows the least value in Egypt. Although, PV cells are not the best to be used because the PV panels are fragile and can be damaged relatively easily and are not applicable for a city scale. On the other hand, In CSP stations there are parabolic concentration and Solar Power Tower(SPT). In the parabolic concentrations, operating a home will be effective but a huge station with parabolic mirrors will outstandingly increase the cost maintaining a moderate efficiency because they will be only operative only in the daytime. So, there was no more appropriate solution than the CSP stations with a SPT as the fittest electric producing station. This project introduces a new technique for exploiting Egypt's natural resources in the production of energy and solving the grand challenges through the reconstruction of its lands as well as considering reducing the cost maintaining sustainable efficiency. As this station uses sea water to produce electricity, distilled water and salts suitable for different manufacturing processes considering several design requirements in accordance with the following: To achieve the maximum efficiency of the project, we used the molten salt from sea water to store heat and alternate the sun at night. For testing that, two test plans were made one in  he daytime with the solar rays and the second in dark with the molten salt, where in each the output electricity is compared. However, for testing that, the prototype consisted of several tanks that are needed to store the liquids and the heat exchange cycle. To achieve the least cost, two main steps were taken in the prototype: The first is to reduce the number of needed motors and LDR sensors in the station from one for each mirror to one for the whole heliostat, the second was to raise the level of the generator and the tanks of both water and molten salt to benefit from the gravity in transferring the fluids during the operation, needing no more than the first pump that pumps the salt water to the receiver on the top of the SPT. Furthermore, there were high determination in having zero gas emissions in the prototype to ensure the real station being ecofriendly. Finally, a data connection between each terminal is made to compare the output data from each point with the estimated average to determine if there is a problem in any point in the station.
+# 🌞 Solar Power Tower Project
+
+Welcome to the Solar Power Tower Project! This guide will help you understand the project and get it up and running in no time.
+
+## 📖 Project Overview
+
+According to the International Energy Agency (IEA), energy consumption worldwide is expected to grow by 70-100% by 2050, representing a global problem in ascending electric consumption and global warming. This project introduces a new technique for exploiting Egypt's natural resources in the production of energy, solving grand challenges through land reconstruction, and reducing costs while maintaining sustainable efficiency.
+
+## 🗂️ Project Structure
+
+Here's a quick look at the project files:
+
+- **/code**: Contains the main code files for the Solar Power Tower project.
+- **/hardware**: Information on the hardware components used.
+- **/schematics**: Circuit diagrams and connection schematics.
+- **/documentation**: Additional project documentation and resources.
+- **README.md**: This file, explaining how to set up and use the project.
+
+## 🚀 Getting Started
+
+Follow these steps to get your Solar Power Tower project up and running:
+
+### 1. Gather the Required Components
+You'll need the following components:
+- Microcontroller (e.g., Arduino)
+- LDR sensors
+- Servo motors
+- Power supply
+- Breadboard and jumper wires
+
+### 2. Clone the Repository
+First, download the project files. Open your terminal and run:
+
+```bash
+git clone https://github.com/your-username/solar-power-tower.git
+cd solar-power-tower
+```
+
+### 3. Install the Arduino IDE
+Make sure you have the Arduino IDE installed on your computer. You can download it from [here](https://www.arduino.cc/en/software).
+
+### 4. Open the Solar Power Tower Code
+Open the Arduino IDE and navigate to File > Open. Select the `.ino` file located in the `/code` directory of this project.
+
+### 5. Connect the Components
+Follow the schematics provided in the `/schematics` folder to connect your Solar Power Tower components to the microcontroller.
+
+### 6. Upload the Code
+Connect your microcontroller to your computer via USB. In the Arduino IDE, select the correct board and port from the Tools menu. Then, click the upload button to upload the code to your microcontroller.
+
+### 7. Test the Solar Power Tower
+Once the code is uploaded, make sure all connections are secure and observe the system's performance as it simulates the solar power generation process.
+
+## 📝 Additional Resources
+- Check the `/documentation` folder for more detailed instructions and troubleshooting tips.
+- Visit the Arduino Project Hub for more information and community support.
+
+## 🏆 Contributing
+Feel free to contribute to this project by submitting issues or pull requests. We welcome all improvements and suggestions!
+
+Enjoy building and optimizing your Solar Power Tower! If you have any questions, feel free to reach out. Happy coding! 🎉
+
+## 📜 Code
+
+```cpp
+#include <Servo.h>
+int ldr = A0;
+int value = 0;
+int ldr1 = A1;
+int value1 = 0;
+int val = 0;
+
+Servo myservo;
+Servo myservo1;
+Servo wheel;
+
+int pos = 0;
+int pos1 = 0;
+
+void setup() {
+  myservo.attach(9);
+  myservo1.attach(10);
+  wheel.attach(11);
+}
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+}
+
+void loop() {
+  value = analogRead(ldr);
+  value1 = analogRead(ldr1);
+  val = value - value1;
+  if (abs(val) > 2) {
+    for (int p = 0; p <= 180; p += 30) {
+      Serial.println(val);
+      pos1 += val;
+      myservo.write(pos1);
+      myservo1.write(pos1);
+      delay(2);
+      wheel.write(p);
+      delay(2);
+      myservo.write(pos);
+      myservo1.write(pos);
+      pos = pos1;
+      delay(2);
+    }
+  }
+}
+```
+
+## 📊 Extracted Graphs/Images
+
+Below are some key graphs and images extracted from the project documentation:
+
+![Extracted Graphs](./extracted_graphs.png)
+
+## 📸 Poster Image
+
+![Poster Image](./first_page_image.png)
