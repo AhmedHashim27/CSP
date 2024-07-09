@@ -33,7 +33,7 @@ You'll need the following components:
 First, download the project files. Open your terminal and run:
 
 ```bash
-git clone https://github.com/your-username/solar-power-tower.git
+git clone https://github.com/CSP/solar-power-tower.git
 cd solar-power-tower
 ```
 
